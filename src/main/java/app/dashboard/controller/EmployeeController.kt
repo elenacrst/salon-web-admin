@@ -32,11 +32,10 @@ class EmployeeController @Autowired constructor(private val appService: IAppServ
     @RequestMapping(value = ["/addEmployee"], method = [RequestMethod.POST])
     fun addEmployee(@ModelAttribute("employee") employee: Employee,
                     result: BindingResult?, model: ModelMap?): String {
-        System.out.println("add employee called "+employee)
-        val returnString = "login"
+        println("add employee called $employee")
         employee.password = appService.encodePassword(employee.password)
         appService.insertEmployee(employee)
 
-        return "login";
+        return "login"
     }
 }

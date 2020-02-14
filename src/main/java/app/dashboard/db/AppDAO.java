@@ -23,8 +23,17 @@ public class AppDAO implements IAppDAO {
         query.setParameter("email", employee.getEmail());
         query.setParameter("phone", employee.getPhone());
         query.setParameter("salonId", 0);
-        query.setParameter("password",employee.getPassword());
-        System.out.println("insert method for employee "+employee);
+        query.setParameter("password", employee.getPassword());
+        System.out.println("insert method for employee " + employee);
+        query.executeUpdate();
+    }
+
+    @Transactional
+    public void insertSalon(@NotNull Salon salon) {
+        Query query = entityManager.createNativeQuery(AppQuery.INSERT_SALON);
+        query.setParameter("latitude", salon.getLatitude());
+        query.setParameter("longitude", salon.getLongitude());
+        query.setParameter("name", salon.getName());
         query.executeUpdate();
     }
 }

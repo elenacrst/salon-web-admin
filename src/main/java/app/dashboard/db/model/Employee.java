@@ -1,5 +1,8 @@
 package app.dashboard.db.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,6 +11,7 @@ public class Employee {
 
     @Id
     @GeneratedValue
+    @NotFound(action = NotFoundAction.IGNORE)
     @Column(name = "employee_id")
     private Long employeeId;
     @Column(name = "first_name", nullable = false)

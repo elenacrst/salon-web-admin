@@ -50,12 +50,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/**").permitAll()//todo delete
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/addEmployee").permitAll()
                 .antMatchers("/dashboard/*").permitAll()
-                .antMatchers("/index").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/salons").permitAll()//.access("hasRole('ROLE_ADMIN')")
+                // .antMatchers("/index").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/salons").permitAll()//.access("hasRole('ROLE_ADMIN')") todo
                 .anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
