@@ -3,4 +3,4 @@
 
 Salons
 
-![image](https://imgur.com/2feRb8l)
+![image](https://i.imgur.com/2feRb8l.png)
